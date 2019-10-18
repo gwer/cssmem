@@ -7,6 +7,18 @@
   },
   "repository": "https://github.com/gwer/cssmem",
   "author": "gwer <webholt@gmail.com>",
+  "keywords": [
+    "bem",
+    "naming",
+    "notation",
+    "react",
+    "css",
+    "classes",
+    "classname",
+    "classnames",
+    "util",
+    "utility"
+  ],
   "license": "MIT",
   "private": false
 }
