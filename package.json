@@ -1,0 +1,12 @@
+{
+  "name": "cssmem",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "repository": "https://github.com/gwer/cssmem",
+  "author": "gwer <webholt@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
