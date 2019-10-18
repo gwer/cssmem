@@ -1,6 +1,6 @@
 # CSSMEM (CSS Module, Element, Modifier)
 
-CSSMEM is like BEM but there is CSS Module instead of Block.
+CSSMEM is like BEM but with CSS Module instead of Block.
 
 It works like `classnames/bind` but with CSSMEM methodology.
 
