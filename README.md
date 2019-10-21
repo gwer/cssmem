@@ -19,8 +19,8 @@ const styles = {
   foo_baz_qwe: 'ghi',
 };
 
-const cx = cssmem(styles);
-const foo = cx('foo');
+const em = cssmem(styles);
+const foo = em('foo');
 
 foo(); // abc
 foo({ bar: true }); //abc def
@@ -55,8 +55,8 @@ import React from 'react';
 import cssmem from 'cssmem';
 import styles from 'MyButton.css';
 
-const cx = cssmem(styles);
-const button = cx('button');
+const em = cssmem(styles);
+const button = em('button');
 
 const MyButton = ({
   onClick,
