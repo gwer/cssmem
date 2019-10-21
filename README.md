@@ -73,3 +73,24 @@ const MyButton = ({
 
 export default MyButton;
 ```
+
+### Mixes
+You can mix other classnames by passing second argument to last call (after modifiers).
+
+```js
+const MyButton = ({
+  onClick,
+  text,
+  wide,
+  size,
+  className,
+}) => {
+  return (
+    <div className={button({ wide, size }, className)} onClick={onClick}>
+      {text}
+    </div>
+  );
+};
+```
+
+If you don't need modifiers you can skip it with `{}` or `null`.

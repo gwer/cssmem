@@ -1,4 +1,4 @@
-const cssmem = (styles) => (elem) => (mods = {}) => {
+const cssmem = (styles) => (elem) => (mods, mix) => {
   if (process.env.NOVE_ENV !== 'production') {
     if (!styles) {
       throw new Error('There is no styles');
@@ -11,7 +11,7 @@ const cssmem = (styles) => (elem) => (mods = {}) => {
 
   const classes = [elem];
 
-  Object.entries(mods).forEach(([modName, modVal]) => {
+  Object.entries(mods || {}).forEach(([modName, modVal]) => {
     if (modVal === true) {
       classes.push(`${elem}_${modName}`)
     } else if (modVal) {
@@ -22,6 +22,7 @@ const cssmem = (styles) => (elem) => (mods = {}) => {
   return classes
     .map(className => styles.hasOwnProperty(className) ? styles[className] : '')
     .filter(x => x)
+    .concat(mix || [])
     .join(' ');
 }
 

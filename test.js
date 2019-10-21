@@ -35,4 +35,9 @@ test('Elem with two mods and one is not bool mod which bool', foo({ bar: 'qwe', 
 
 test('Elem not found', cx('bar')(), '');
 
+test('Mix with elem', foo({}, 'mixed'), 'abc mixed');
+test('Mix with array', foo({}, ['mixed', 'fixed']), 'abc mixed fixed');
+test('Mix with null mod', foo(null, 'mixed'), 'abc mixed');
+test('Mix with mod', foo({ bar: true }, 'mixed'), 'abc def mixed');
+
 console.log('\nAll test passed!')
