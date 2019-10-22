@@ -18,8 +18,8 @@ const styles = {
   foo_baz_qwe: 'ghi',
 };
 
-const cx = cssmem(styles);
-const foo = cx('foo');
+const em = cssmem(styles);
+const foo = em('foo');
 
 test('Just elem', foo(), 'abc');
 
@@ -33,7 +33,7 @@ test('Elem with not bool mod which bool', foo({ bar: 'qwe' }), 'abc');
 test('Elem with two mods and one is bool mod which not bool', foo({ baz: true, bar: true }), 'abc def');
 test('Elem with two mods and one is not bool mod which bool', foo({ bar: 'qwe', baz: 'qwe' }), 'abc ghi');
 
-test('Elem not found', cx('bar')(), '');
+test('Elem not found', em('bar')(), '');
 
 test('Mix with elem', foo({}, 'mixed'), 'abc mixed');
 test('Mix with array', foo({}, ['mixed', 'fixed']), 'abc mixed fixed');
