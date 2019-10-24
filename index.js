@@ -1,29 +1,39 @@
-const cssmem = (styles) => (elem) => (mods, mix) => {
-  if (process.env.NOVE_ENV !== 'production') {
-    if (!styles) {
-      throw new Error('There is no styles');
-    }
+var cssmem = function (styles) {
+  return function (elem) {
+    return function (mods, mix) {
+      if (process.env.NOVE_ENV !== 'production') {
+        if (!styles) {
+          throw new Error('There is no styles');
+        }
 
-    if (!elem) {
-      throw new Error('There is no element name');
-    }
-  }
+        if (!elem) {
+          throw new Error('There is no element name');
+        }
+      }
 
-  const classes = [elem];
+      var classes = [elem];
 
-  Object.entries(mods || {}).forEach(([modName, modVal]) => {
-    if (modVal === true) {
-      classes.push(`${elem}_${modName}`)
-    } else if (modVal) {
-      classes.push(`${elem}_${modName}_${modVal}`)
-    }
-  });
+      if (mods) {
+        Object.getOwnPropertyNames(mods).forEach(function (modName) {
+          var modVal = mods[modName];
 
-  return classes
-    .map(className => styles.hasOwnProperty(className) ? styles[className] : '')
-    .filter(x => x)
-    .concat(mix || [])
-    .join(' ');
-}
+          if (modVal === true) {
+            classes.push([elem, modName].join('_'));
+          } else if (modVal) {
+            classes.push([elem, modName, modVal].join('_'));
+          }
+        });
+      }
+
+      return classes
+        .map(function (className) {
+          return styles.hasOwnProperty(className) ? styles[className] : '';
+        })
+        .filter(Boolean)
+        .concat(mix || [])
+        .join(' ');
+    };
+  };
+};
 
 module.exports = cssmem;
