@@ -20,5 +20,7 @@
     "utility"
   ],
   "license": "MIT",
-  "private": false
+  "devDependencies": {
+    "jest": "24.9.0"
+  }
 }
