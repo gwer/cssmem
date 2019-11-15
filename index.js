@@ -27,7 +27,12 @@ var cssmem = function (styles) {
 
       return classes
         .map(function (className) {
-          return styles.hasOwnProperty(className) ? styles[className] : '';
+          if (styles.hasOwnProperty(className)) {
+            return styles[className];
+          } else {
+            console.warn(className, 'property not found in styles');
+            return '';
+          }
         })
         .filter(Boolean)
         .concat(mix || [])
