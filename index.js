@@ -30,7 +30,10 @@ var cssmem = function (styles) {
           if (styles.hasOwnProperty(className)) {
             return styles[className];
           } else {
-            console.warn(className, 'property not found in styles');
+            if (process.env.NOVE_ENV !== 'production') {
+              console.warn(className, 'property not found in styles');
+            }
+
             return '';
           }
         })

@@ -1,3 +1,5 @@
+process.env.NOVE_ENV = 'production';
+
 const cssmem = require('.');
 
 const test = (name, received, expected) => {
