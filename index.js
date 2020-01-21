@@ -1,7 +1,7 @@
 var cssmem = function (styles) {
   return function (elem) {
     return function (mods, mix) {
-      if (process.env.NOVE_ENV !== 'production') {
+      if (process.env.NODE_ENV !== 'production') {
         if (!styles) {
           throw new Error('There is no styles');
         }
@@ -30,7 +30,7 @@ var cssmem = function (styles) {
           if (styles.hasOwnProperty(className)) {
             return styles[className];
           } else {
-            if (process.env.NOVE_ENV !== 'production') {
+            if (process.env.NODE_ENV !== 'production') {
               console.warn(className, 'property not found in styles');
             }
 
