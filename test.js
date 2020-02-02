@@ -1,4 +1,4 @@
-process.env.NOVE_ENV = 'production';
+process.env.NODE_ENV = 'production';
 
 const cssmem = require('.');
 
