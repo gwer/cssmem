@@ -27,7 +27,7 @@ var cssmem = function (styles) {
 
       return classes
         .map(function (className) {
-          if (styles.hasOwnProperty(className)) {
+          if (typeof styles[className] === "string") {
             return styles[className];
           } else {
             if (process.env.NODE_ENV !== 'production') {
