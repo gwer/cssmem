@@ -1,6 +1,6 @@
-const cssmem = require('.');
+import cssmem from './index';
 
-const test = (name, received, expected) => {
+const test = (name: string, received: string, expected: string) => {
   if (received !== expected) {
     throw new Error(`
       ${name}:
