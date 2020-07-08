@@ -1,7 +1,7 @@
 {
   "name": "cssmem",
-  "version": "1.2.4",
-  "main": "index.js",
+  "version": "2.0.0",
+  "main": "index.ts",
   "scripts": {
     "test": "node ./test.js"
   },
@@ -21,7 +21,7 @@
   ],
   "license": "MIT",
   "private": false,
-  "devDependencies": {
+  "dependencies": {
     "@types/node": "^14.0.19",
     "typescript": "^3.9.6"
   }
