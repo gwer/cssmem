@@ -1,6 +1,6 @@
 {
   "name": "cssmem",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "main": "index.js",
   "scripts": {
     "test": "node ./test.js"
