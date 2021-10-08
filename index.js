@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+  var showedNotFoundStyles = {};
+}
+
 var cssmem = function (styles) {
   return function (elem) {
     return function (mods, mix) {
@@ -26,12 +30,18 @@ var cssmem = function (styles) {
       }
 
       return classes
-        .map(function (className) {
-          if (typeof styles[className] === "string") {
+        .map(function (className, inx) {
+          if (typeof styles[className] === 'string') {
             return styles[className];
           } else {
             if (process.env.NODE_ENV !== 'production') {
-              console.warn(className, 'property not found in styles');
+              if (
+                !(className in showedNotFoundStyles) &&
+                inx === classes.length - 1
+              ) {
+                console.warn(className, 'property not found in styles');
+                showedNotFoundStyles[className] = true;
+              }
             }
 
             return '';
