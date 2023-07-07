@@ -22,9 +22,15 @@ var cssmem = function (styles) {
           var modVal = mods[modName];
 
           if (modVal === true) {
-            classes.push([elem, modName].join('_'));
+            classes.push(elem + cssmem.config.elemDelimiter + modName);
           } else if (modVal) {
-            classes.push([elem, modName, modVal].join('_'));
+            classes.push(
+              elem +
+                cssmem.config.elemDelimiter +
+                modName +
+                cssmem.config.modDelimiter +
+                modVal
+            );
           }
         });
       }
@@ -52,6 +58,11 @@ var cssmem = function (styles) {
         .join(' ');
     };
   };
+};
+
+cssmem.config = {
+  elemDelimiter: '_',
+  modDelimiter: '_',
 };
 
 module.exports = cssmem;

@@ -1,6 +1,16 @@
+type Config = {
+  elemDelimiter: string;
+  modDelimiter: string;
+};
+
 type Styles = { [key: string]: string };
 type Exec = (mods?: object | null, mix?: string | string[]) => string;
 type CreateElem = (elem: string) => Exec;
-type Cssmem = (styles: Styles) => CreateElem;
+type Cssmem = {
+  (styles: Styles): CreateElem;
+  config: Config;
+};
 
-export default function cssmem(styles: Styles): CreateElem;
+declare const cssmem: Cssmem;
+
+export default cssmem;

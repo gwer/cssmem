@@ -94,3 +94,12 @@ const MyButton = ({
 ```
 
 If you don't need modifiers you can skip it with `{}` or `null`.
+
+### Configuration
+If you need custom delimiters, you can change defaults:
+
+```js
+// Somewhere in the root of your app
+cssmem.config.elemDelimiter = '--'; // Default is '_'
+cssmem.config.modDelimiter = '-'; // Default is '_' too
+```
